@@ -4,6 +4,17 @@ body {
 	padding-top: 200px;
 }
 
+.bx-scrollGauge {
+	display: block;
+	width: 0;
+	height: 8px;
+	background-color: #CCC2B4;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
 .box-thumbnail {
 	width: 500px;
 	height: 330px;
