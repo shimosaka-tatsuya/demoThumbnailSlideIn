@@ -32,9 +32,12 @@ $(window).load(function() {
 		
 		$(".animationSlideInThumbnail").each(function(){
 			var position = $(this).offset().top; //ページの一番上から要素までの距離を取得
+			var minusValue = (windowHeight - 330) / 2;
 	
-			if (scroll > position - 330){ //スクロール位置が要素の位置を過ぎたとき
+			if (scroll > position - minusValue){ //スクロール位置が要素の位置を過ぎたとき
 				$(this).addClass('animationSlideInThumbnail-active'); //クラス「animationSlideInThumbnail-active」を与える
+			} else if (position - minusValue*4.5 > scroll) {
+				$(this).removeClass('animationSlideInThumbnail-active'); //クラス「animationSlideInThumbnail-active」を削除
 			}
 		});
 	});
