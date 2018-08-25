@@ -1,0 +1,62 @@
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}
+
+body {
+	padding-top: 200px;
+}
+
+.box-thumbnail {
+	width: 500px;
+	height: 330px;
+	margin: 0 auto 200px;
+	position: relative;
+}
+
+@keyframes slideInThumbnailBackground {
+	0% {
+		width: 0;
+	}
+	100% {
+		width: 100%;
+	}
+}
+
+.box-thumbnail::before {
+	content: "";
+	display: block;
+	width: 0;
+	height: 330px;
+	background-color: #ccc;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.animationSlideInThumbnail-active.box-thumbnail::before {
+	animation-name: slideInThumbnailBackground;
+	animation-duration: .4s;
+	animation-timing-function: ease-out;
+	animation-fill-mode: both;
+}
+
+@keyframes slideInThumbnail {
+	0% {
+		clip: rect(0, 0, 330px, 0);
+	}
+	100% {
+		clip: rect(0, 500px, 330px, 0);
+	}
+}
+
+.img-thumbnail {
+	width: 500px;
+	position: absolute;
+	clip: rect(0, 0, 330px, 0);
+}
+
+.animationSlideInThumbnail-active.box-thumbnail .img-thumbnail {
+	animation-name: slideInThumbnail;
+	animation-duration: .4s;
+	animation-timing-function: ease-in;
+	animation-fill-mode: both;
+	animation-delay: .4s;
+}

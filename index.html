@@ -1,0 +1,34 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="box-thumbnail animationSlideInThumbnail">
+		<img class="img-thumbnail" src="img_thumbnailGd.jpg" alt="サムネイル" width="100%" height="">
+	</div><!-- /.box-thumbnail -->
+	
+	<div class="box-thumbnail animationSlideInThumbnail">
+		<img class="img-thumbnail" src="img_thumbnailGd.jpg" alt="サムネイル" width="100%" height="">
+	</div><!-- /.box-thumbnail -->
+	
+	<div class="box-thumbnail animationSlideInThumbnail">
+		<img class="img-thumbnail" src="img_thumbnailGd.jpg" alt="サムネイル" width="100%" height="">
+	</div><!-- /.box-thumbnail -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+$(window).scroll(function (){
+	$(".animationSlideInThumbnail").each(function(){
+		var position = $(this).offset().top; //ページの一番上から要素までの距離を取得
+		var scroll = $(window).scrollTop(); //スクロールの位置を取得
+		var windowHeight = $(window).height(); //ウインドウの高さを取得
+
+		$(this).attr("name", position + 330);
+		if (scroll > position - 330){ //スクロール位置が要素の位置を過ぎたとき
+			$(this).addClass('animationSlideInThumbnail-active'); //クラス「active」を与える
+		}
+	});
+});
+</script>
+</body>
+</html>
